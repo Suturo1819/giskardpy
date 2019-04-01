@@ -1,0 +1,32 @@
+digraph root {
+graph [fontname="times-roman"];
+node [fontname="times-roman"];
+edge [fontname="times-roman"];
+root [fillcolor=orange, fontcolor=black, fontsize=11, shape=box, style=filled];
+sync [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+root -> sync;
+"wait for goal" [fillcolor=cyan, fontcolor=black, fontsize=11, shape=octagon, style=filled];
+root -> "wait for goal";
+"has goal" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+"wait for goal" -> "has goal";
+monitor [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+"wait for goal" -> monitor;
+"update constraints" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+root -> "update constraints";
+planning [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+root -> planning;
+"goal canceled" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+planning -> "goal canceled";
+"in collision" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+planning -> "in collision";
+"planning*" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+planning -> "planning*";
+"move robot" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+root -> "move robot";
+"goal canceled*" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+"move robot" -> "goal canceled*";
+"send traj" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+"move robot" -> "send traj";
+"send result" [fillcolor=gray, fontcolor=black, fontsize=11, shape=ellipse, style=filled];
+root -> "send result";
+}
